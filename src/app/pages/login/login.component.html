@@ -1,0 +1,32 @@
+<div class="row">
+  <nb-card class="col-lg-6 offset-3">
+    <nb-card-header>
+      <nav class="navigation">
+        <a style="text-decoration: none;" href="/#/pages/main"><i style="font-size: 40px" class="icon nb-arrow-thin-left"></i></a>
+      </nav>
+    </nb-card-header>
+
+    <nb-card-body>
+      <h1 class="text-center vazir-font">فرم ورود</h1>
+      <form [formGroup]="loginForm" >
+        <div class="form-group" style="direction: rtl">
+          <input [formControl]="email" name="email" type="text" placeholder="ایمیل خود را وارد کنید"class="form-control vazir-font {{email.valid || email.untouched? 'input-success ng-touched': 'input-danger'}}">
+          <div [hidden]="email.valid || email.untouched" >
+            <div class="text-danger vazir-font text-right mt-2" [hidden]="!email.hasError('required')">لطفا ایمیل را وارد نمایید</div>
+            <div class="text-danger vazir-font text-right mt-2" [hidden]="!email.hasError('email')">ایمیل خود را به صورت صحیح وارد نمایید</div>
+          </div>
+        </div>
+        <div class="form-group" style="direction: rtl">
+          <input [formControl]="password" name="password" type="password" placeholder="رمزعبور خود را وارد کنید" class="form-control vazir-font {{password.valid || password.untouched? 'input-success ng-touched': 'input-danger'}}">
+          <div [hidden]="password.valid || password.untouched">
+            <div class="text-danger vazir-font text-right mt-2" [hidden]="!password.hasError('required')">لطفا رمزعبور را وارد نمایید</div>
+            <div class="text-danger vazir-font text-right mt-2" [hidden]="!password.hasError('minlength')">رمزعبور باید بیشتر از ۶ کاراکتر باشد</div>
+          </div>
+        </div>
+        <div class="form-group" style="direction: rtl">
+          <button [disabled]="!loginForm.valid" (click)="login()" class="btn btn-success vazir-font text-center col-lg-2 offset-10">ورود</button>
+        </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</div>

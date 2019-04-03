@@ -1,0 +1,76 @@
+<div class="row">
+  <nb-card class="col-lg-6 offset-3">
+    <nb-card-header>
+      <nav class="navigation">
+        <a style="text-decoration: none;" href="/#/pages/main"><i style="font-size: 40px" class="icon nb-arrow-thin-left"></i></a>
+      </nav>
+    </nb-card-header>
+
+    <nb-card-body *ngIf="formStatus == 'login'" >
+      <h1 class="text-center vazir-font">فرم ثبت نام</h1>
+      <form [formGroup]="registerForm" >
+        <div class="form-group" style="direction: rtl">
+          <input [formControl]="email" name="email" type="text" placeholder="ایمیل خود را وارد کنید"class="form-control vazir-font {{email.valid || email.untouched? 'input-success ng-touched': 'input-danger'}}">
+          <div [hidden]="email.valid || email.untouched" >
+            <div class="text-danger vazir-font text-right mt-2" [hidden]="!email.hasError('required')">لطفا ایمیل را وارد نمایید</div>
+            <div class="text-danger vazir-font text-right mt-2" [hidden]="!email.hasError('email')">ایمیل خود را به صورت صحیح وارد نمایید</div>
+          </div>
+        </div>
+        <div class="form-group" style="direction: rtl">
+          <input (change)="checkPasswords()" [formControl]="password" name="password" type="password" placeholder="رمزعبور خود را وارد کنید" class="form-control vazir-font {{password.valid || password.untouched? 'input-success ng-touched': 'input-danger'}}">
+          <div [hidden]="password.valid || password.untouched">
+            <div class="text-danger vazir-font text-right mt-2" [hidden]="!password.hasError('required')">لطفا رمزعبور را وارد نمایید</div>
+            <div class="text-danger vazir-font text-right mt-2" [hidden]="!password.hasError('minlength')">رمزعبور باید بیشتر از ۶ کاراکتر باشد</div>
+          </div>
+        </div>
+        <div class="form-group" style="direction: rtl">
+          <input (change)="checkPasswords()" [formControl]="confirmPassword" name="confirmPassword" type="password" placeholder="رمزعبور خود را تکرار کنید" class="form-control vazir-font {{confirmPassword.valid || confirmPassword.untouched? 'input-success ng-touched': 'input-danger'}}">
+          <div [hidden]="confirmPassword.valid || confirmPassword.untouched">
+            <div class="text-danger vazir-font text-right mt-2" [hidden]="!confirmPassword.hasError('required')">لطفا رمزعبور خود را تکرار کنید</div>
+            <div class="text-danger vazir-font text-right mt-2" [hidden]="!confirmPassword.hasError('same')">رمزعبور و تکرار رمزعبور با یکدیگر تفاوت دارند</div>
+          </div>
+        </div>
+        <div class="form-group" style="direction: rtl">
+          <input [formControl]="name" name="name" type="text" placeholder="نام خود را وارد کنید" class="form-control vazir-font {{name.valid || name.untouched? 'input-success ng-touched': 'input-danger'}}">
+          <div [hidden]="name.valid || name.untouched">
+            <div class="text-danger vazir-font text-right mt-2" [hidden]="!name.hasError('required')">لطفا نام را وارد
+              نمایید</div>
+            <div class="text-danger vazir-font text-right mt-2" [hidden]="!name.hasError('minlength')">نام باید بیشتر
+              از ۲ کاراکتر باشد</div>
+          </div>
+        </div>
+        <div class="form-group" style="direction: rtl">
+          <button [disabled]="!registerForm.valid" (click)="login()" class="btn btn-success vazir-font text-center col-lg-2 offset-10">ثبت نام</button>
+        </div>
+      </form>
+    </nb-card-body>
+
+
+    <nb-card-body *ngIf="formStatus == 'email'" >
+      <h1 class="text-center vazir-font">فرم ثبت نام</h1>
+      <form >
+        <div class="form-group" style="direction: rtl;" >
+          <h5 class="vazir-font text-center mt-3 mr-1 mb-3" style="color: #2016ef;" >ما یک ایمیل حاوی کد تایید به ایمیل شما ارسال کردیم.</h5>
+        </div>
+        <div class="form-group" style="direction: rtl">
+          <input [(ngModel)]="code" name="code" type="text" class="form-control vazir-font" placeholder="کد تایید را وارد نمایید" >
+        </div>
+        <div class="form-group" style="direction: rtl">
+          <button [disabled]="code.length != 7" (click)="checkEmail()" class="btn btn-success vazir-font text-center col-lg-2 offset-10">تایید</button>
+        </div>
+      </form>
+    </nb-card-body>
+
+    <nb-card-body *ngIf="formStatus == 'success'">
+      <h1 style="direction: rtl;" class="text-center vazir-font">تبریک !</h1>
+      <form>
+        <div class="form-group" style="direction: rtl;">
+          <h5 class="vazir-font text-center mt-3 mr-1 mb-3" style="color: #2016ef;" >ایمیل شما تایید شد.</h5>
+        </div>
+        <div class="form-group" style="direction: rtl">
+          <a style="text-decoration: none;font-family: vazirFont;" class="col-lg-2 offset-10 btn btn-success vazir-font text-center" href="/#/pages/login">ورود</a>
+        </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</div>

@@ -1,0 +1,5 @@
+.vs/
+node_modules/.cache/*
+node_modules/*
+Server Side/.vs/App1/v15/Server/sqlite3/*
+Server Side/    
