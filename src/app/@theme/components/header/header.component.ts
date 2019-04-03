@@ -50,5 +50,12 @@ export class HeaderComponent implements OnInit {
 
   startSearch() {
     this.analyticsService.trackEvent('startSearch');
+    let search: any = document.querySelector('input.search-input');
+    let searchInfo: any = document.querySelector('span.info');
+    search.style.textAlign = 'right';
+    search.style.fontFamily = 'vazirFont';
+    searchInfo.style.fontFamily = 'vazirFont';
+    search.placeholder = 'دنبال چی میگردی ؟';
+    searchInfo.textContent = 'برای شروع دکمه اینتر را فشار دهید';
   }
 }
