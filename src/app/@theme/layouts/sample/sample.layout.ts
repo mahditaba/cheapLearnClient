@@ -23,7 +23,7 @@ import { StateService } from '../../../@core/data/state.service';
 
       
 
-      <nb-layout-column class="main-content">
+      <nb-layout-column style="padding: 0;" class="main-content">
         <ng-content select="router-outlet"></ng-content>
       </nb-layout-column>
 
