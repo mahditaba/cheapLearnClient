@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import {ArticlesComponent} from './components/articles/articles.component';
 import {
   NbActionsModule,
   NbCardModule,
@@ -107,6 +107,7 @@ const COMPONENTS = [
   ThemeSwitcherListComponent,
   HeaderComponent,
   FooterComponent,
+  ArticlesComponent,
   SearchInputComponent,
   ThemeSettingsComponent,
   OneColumnLayoutComponent,
