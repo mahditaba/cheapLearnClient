@@ -26,10 +26,32 @@ import { Api } from '../../api';
     .main-text-header {
       font-family: adobeShinFont;
       margin-top: 19px;
+      padding: 0;
       font-size: 75px;
     }
-    .course-image { transition: all .5s ease-in-out;border-radius: 5px; margin-bottom: 5px; }
-    .course-image:hover { transform: scale(1.05); border-radius: 5px; }
+
+    header {
+      position: relative;
+      height: 300px;
+      background-image: linear-gradient(90deg, #f1dd28, #26d7ff);
+    }
+    
+    h1 {
+      padding: 100px 0;
+      font: 44px "Arial";
+      text-align: center;
+    }
+    
+    header h1 {
+      color: white;
+    }
+    
+    svg {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100px;
+    }
   `]
 })
 export class DashboardComponent {
